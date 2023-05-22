@@ -1,4 +1,5 @@
 import uuid
+from django.contrib.auth import settings
 from django.db import models
 
 
@@ -26,3 +27,5 @@ class Device(models.Model):
     gps_s = models.FloatField()
     membership = models.CharField(
         max_length=1, choices=MEMBERSHIP_CHOICES, default=SAVE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+

@@ -8,4 +8,4 @@ from . import models
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ['api_key', 'ultrasonic_left_value', 'ultrasonic_right_value', 'gps_lat', 'gps_lng', 'gps_h',
                     'gps_m',
-                    'gps_s', 'membership']
+                    'gps_s', 'membership', 'user']
