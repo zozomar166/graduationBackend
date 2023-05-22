@@ -17,9 +17,7 @@ class DeviceViewSet(ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        username = get_user_model()
         if user.is_staff:
             return Device.objects.all()
         elif not user.is_staff:
-            user_id = username.objects.get(username=username).id
-            return Device.objects.filter(user_id=user_id)
+            return Device.objects.filter(user_id=user.id)
