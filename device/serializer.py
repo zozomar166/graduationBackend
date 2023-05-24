@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import *
+from user.serializer import *
 
 
 class CustomerDeviceSerializer(serializers.ModelSerializer):
@@ -19,6 +20,8 @@ class DeviceSerializer(serializers.ModelSerializer):
 
 
 class CustomerSerializer(serializers.ModelSerializer):
+    user = UserCreateSerializer()
+
     class Meta:
         model = Customer
         fields = ['first_name', 'last_name', 'phone', 'address', 'user', 'active']
