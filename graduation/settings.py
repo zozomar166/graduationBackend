@@ -148,3 +148,7 @@ SIMPLE_JWT = {
     "ALGORITHM": "HS256",
     "SIGNING_KEY": settings.SECRET_KEY,
 }
+AUTHENTICATION_BACKENDS = [
+    'device.backend.CustomerAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]

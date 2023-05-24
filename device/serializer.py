@@ -7,8 +7,10 @@ class CustomerDeviceSerializer(serializers.ModelSerializer):
         model = Customer
         fields = ['first_name', 'last_name', 'phone']
 
+
 class DeviceSerializer(serializers.ModelSerializer):
     customer = CustomerDeviceSerializer()
+
     class Meta:
         model = Device
         fields = ['api_key', 'ultrasonic_left_value', 'ultrasonic_right_value', 'gps_lat', 'gps_lng', 'gps_h',
