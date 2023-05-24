@@ -13,7 +13,6 @@ from .models import *
 
 class DeviceViewSet(ModelViewSet):
     http_method_names = ['get', 'post', 'patch', 'delete']
-    # queryset = Device.objects.all()
     serializer_class = DeviceSerializer
     permission_classes = [IsAdminOrReadOnly, IsAuthenticated]
 
@@ -22,5 +21,17 @@ class DeviceViewSet(ModelViewSet):
         if user.is_staff:
             return Device.objects.all()
         elif not user.is_staff:
-            print('userid=', user.id)
-            return Device.objects.filter(user=user.id)
+            return Device.objects.filter(customer=user.id)
+
+
+class CustomerViewSet(ModelViewSet):
+    serializer_class = CustomerSerializer
+    permission_classes = [IsAdminOrReadOnly, IsAuthenticated]
+
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_staff:
+            return Customer.objects.all()
+        elif not user.is_staff:
+            return Customer.objects.filter(user=user.id)
