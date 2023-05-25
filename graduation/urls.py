@@ -21,6 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
-    path('device/', include('device.urls')),
-    path('customer/', include('device.urls')),
+    path('V1/', include('device.urls')),
 ]
