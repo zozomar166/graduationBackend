@@ -43,4 +43,4 @@ class CustomerAdmin(admin.ModelAdmin):
 
 @admin.register(models.Blind)
 class BlindAdmin(admin.ModelAdmin):
-    list_display = ['first_name', 'last_name', 'phone', 'address', 'active']
+    list_display = ['first_name', 'last_name', 'phone', 'address', 'customer', 'active']

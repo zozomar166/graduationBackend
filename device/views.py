@@ -28,7 +28,6 @@ class CustomerViewSet(ModelViewSet):
     serializer_class = CustomerSerializer
     permission_classes = [IsAdminOrReadOnly, IsAuthenticated]
 
-
     def get_queryset(self):
         user = self.request.user
         if user.is_staff:
@@ -36,7 +35,15 @@ class CustomerViewSet(ModelViewSet):
         elif not user.is_staff:
             return Customer.objects.filter(user=user.id)
 
+
 class BlindViewSet(ModelViewSet):
     queryset = Blind.objects.all()
     serializer_class = BlindSerializer
     permission_classes = [IsAdminOrReadOnly, IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_staff:
+            return Blind.objects.all()
+        elif not user.is_staff:
+            return Blind.objects.filter(customer=user.id)

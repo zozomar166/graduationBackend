@@ -5,12 +5,6 @@ from django.db import models
 
 
 # Create your models here.
-class Blind(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    phone = models.CharField(max_length=255)
-    address = models.CharField(max_length=255)
-    active = models.BooleanField(default=True)
 
 
 class Customer(models.Model):
@@ -24,6 +18,14 @@ class Customer(models.Model):
     def __str__(self) -> str:
         return self.first_name
 
+
+class Blind(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    active = models.BooleanField(default=True)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
 class Device(models.Model):
     SAVE = 'S'
