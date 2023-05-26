@@ -19,7 +19,12 @@ class DeviceSerializer(serializers.ModelSerializer):
 
 
 class CustomerSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Customer
         fields = ['first_name', 'last_name', 'phone', 'address', 'active']
+
+
+class BlindSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Blind
+        fields = '__all__'

@@ -35,3 +35,8 @@ class CustomerViewSet(ModelViewSet):
             return Customer.objects.all()
         elif not user.is_staff:
             return Customer.objects.filter(user=user.id)
+
+class BlindViewSet(ModelViewSet):
+    queryset = Blind.objects.all()
+    serializer_class = BlindSerializer
+    permission_classes = [IsAdminOrReadOnly, IsAuthenticated]

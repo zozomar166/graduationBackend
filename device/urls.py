@@ -4,6 +4,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register('devices', views.DeviceViewSet, basename='device')
 router.register('customers', views.CustomerViewSet, basename='customer')
+router.register('blind', views.BlindViewSet, basename='blind')
 
 customers_router = routers.NestedDefaultRouter(router, 'customers', lookup='customers')
 customers_router.register('devices', views.DeviceViewSet, basename='customers-devices')

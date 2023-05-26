@@ -5,6 +5,13 @@ from django.db import models
 
 
 # Create your models here.
+class Blind(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    active = models.BooleanField(default=True)
+
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=255)
@@ -16,6 +23,7 @@ class Customer(models.Model):
 
     def __str__(self) -> str:
         return self.first_name
+
 
 class Device(models.Model):
     SAVE = 'S'
@@ -40,6 +48,3 @@ class Device(models.Model):
         max_length=1, choices=MEMBERSHIP_CHOICES, default=SAVE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
-
-

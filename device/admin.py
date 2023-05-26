@@ -39,3 +39,8 @@ class CustomerAdmin(admin.ModelAdmin):
             'customer__id': str(customer.user.id)
         }))
         return format_html('<a href="{}">{} "Customers"</a>', url, customer.user)
+
+
+@admin.register(models.Blind)
+class BlindAdmin(admin.ModelAdmin):
+    list_display = ['first_name', 'last_name', 'phone', 'address', 'active']
