@@ -27,6 +27,7 @@ class Blind(models.Model):
     active = models.BooleanField(default=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
+
 class Device(models.Model):
     SAVE = 'S'
     DANGER = 'D'
@@ -49,4 +50,3 @@ class Device(models.Model):
     membership = models.CharField(
         max_length=1, choices=MEMBERSHIP_CHOICES, default=SAVE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
