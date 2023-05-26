@@ -1,9 +1,6 @@
-from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 
-from django.contrib.auth import get_user_model
-from user.models import User
 from .permissions import *
 from .serializer import *
 from .models import *
@@ -14,7 +11,7 @@ from .models import *
 class DeviceViewSet(ModelViewSet):
     http_method_names = ['get', 'post', 'patch', 'delete']
     serializer_class = DeviceSerializer
-    permission_classes = [IsAdminOrReadOnly, IsAuthenticated]
+    permission_classes = [IsAuthenticated, BlindDevicesPermissions]
 
     def get_queryset(self):
         user = self.request.user
@@ -39,7 +36,7 @@ class CustomerViewSet(ModelViewSet):
 class BlindViewSet(ModelViewSet):
     queryset = Blind.objects.all()
     serializer_class = BlindSerializer
-    permission_classes = [IsAdminOrReadOnly, IsAuthenticated]
+    permission_classes = [IsAuthenticated, CustomerBlindPermissions]
 
     def get_queryset(self):
         user = self.request.user
