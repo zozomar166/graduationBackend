@@ -25,11 +25,11 @@ class CustomerAdmin(admin.ModelAdmin):
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ['api_key', 'ultrasonic_left_value', 'ultrasonic_right_value', 'gps_lat', 'gps_lng', 'gps_h',
                     'gps_m',
-                    'gps_s', 'membership', 'customer_id']
-    list_select_related = ['customer']
+                    'gps_s', 'membership', 'blind_id']
+    list_select_related = ['blind']
 
-    @admin.display(ordering='customer_id')
-    def customer_id(self, device):
+    @admin.display(ordering='blind_id')
+    def blind_id(self, device):
         url = (
                 reverse('admin:device_customer_changelist')
                 + '?'

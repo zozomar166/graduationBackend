@@ -13,7 +13,9 @@ class Customer(models.Model):
     phone = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     active = models.BooleanField(default=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user_name = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
 
     def __str__(self) -> str:
         return self.first_name
@@ -49,4 +51,4 @@ class Device(models.Model):
     gps_s = models.FloatField()
     membership = models.CharField(
         max_length=1, choices=MEMBERSHIP_CHOICES, default=SAVE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    blind = models.OneToOneField(Blind, on_delete=models.CASCADE)

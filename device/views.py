@@ -1,6 +1,8 @@
+from requests import Response
+from rest_framework.mixins import CreateModelMixin
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
-
+from .customermixin import CreateCustomMixin
 from .permissions import *
 from .serializer import *
 from .models import *
@@ -21,7 +23,7 @@ class DeviceViewSet(ModelViewSet):
             return Device.objects.filter(customer=user.id)
 
 
-class CustomerViewSet(ModelViewSet):
+class CustomerViewSet(ModelViewSet, CreateCustomMixin):
     serializer_class = CustomerSerializer
     permission_classes = [IsAdminOrReadOnly, IsAuthenticated]
 
