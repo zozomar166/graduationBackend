@@ -5,29 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73c7399e-f699-4fd1-8dbb-b0305635b5dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/V1/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/migrations/0002_alter_customer_address_alter_customer_phone.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/serializer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/V1/migrations/0003_blind_device.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/V1/migrations/0004_device_blind.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/V1/migrations/0005_blind_user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/V1/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/graduationBackend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/graduationBackend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graduation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/graduation/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graduation/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/graduation/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/V1/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/V1/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/V1/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/V1/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/V1/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,15 +37,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/ASUS/Desktop/storefront2",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/Desktop/storefront2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\Desktop\graduationBackend\V1" />

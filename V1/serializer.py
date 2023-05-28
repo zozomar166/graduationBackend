@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from .models import Customer
+from .models import Customer, Blind, Device
 
 User = get_user_model()
 
@@ -8,7 +8,7 @@ User = get_user_model()
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = ['username', 'first_name', 'last_name', 'password', 'phone', 'address']
+        fields = ['id', 'username', 'first_name', 'last_name', 'password', 'phone', 'address', 'is_staff']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -17,3 +17,16 @@ class CustomerSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
+
+
+
+class BlindSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Blind
+        fields = '__all__'
+
+
+class DeviceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Device
+        fields = '__all__'
