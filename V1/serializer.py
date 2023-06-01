@@ -6,9 +6,10 @@ User = get_user_model()
 
 
 class CustomerSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Customer
-        fields = ['id', 'username', 'first_name', 'last_name', 'password', 'phone', 'address', 'is_staff']
+        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'password', 'phone', 'address', 'is_staff']
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -17,7 +18,6 @@ class CustomerSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
-
 
 
 class BlindSerializer(serializers.ModelSerializer):
@@ -30,3 +30,9 @@ class DeviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Device
         fields = '__all__'
+
+class UpdateCustomerSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Customer
+        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'phone', 'address', 'is_staff']

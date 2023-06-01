@@ -2,13 +2,14 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from .permissions import IsAdminOrReadOnly, CustomerBlindPermissions, BlindDevicePermissions
-from .serializer import CustomerSerializer, BlindSerializer, DeviceSerializer
+from .serializer import CustomerSerializer, BlindSerializer, DeviceSerializer, UpdateCustomerSerializer
 from .models import Customer, Blind, Device
 
 
 # Create your views here.
 class CustomerViewSet(ModelViewSet):
-    serializer_class = CustomerSerializer
+    # queryset = Customer.objects.all()
+    # serializer_class = CustomerSerializer
     permission_classes = [IsAuthenticated, CustomerBlindPermissions]
 
     def get_queryset(self):
@@ -16,6 +17,13 @@ class CustomerViewSet(ModelViewSet):
         if user.is_staff:
             return Customer.objects.all()
         return Customer.objects.filter(blinds__user_id=user.id)
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return CustomerSerializer
+        # elif self.request.method == 'PATCH':
+            # return UpdateCartItemSerializer
+        return UpdateCustomerSerializer
 
 
 class BlindViewSet(ModelViewSet):

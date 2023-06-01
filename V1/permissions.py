@@ -14,7 +14,7 @@ class CustomerBlindPermissions(permissions.DjangoModelPermissions):
 
     def has_permission(self, request, view):
         # for anyone
-        if request.method in ['GET', 'POST', 'PUT', 'HEAD', 'OPTIONS']:
+        if request.method in ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS']:
             return True
         return bool(request.user and request.user.is_staff)
 
