@@ -6,7 +6,6 @@ User = get_user_model()
 
 
 class CustomerSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Customer
         fields = ['id', 'username', 'first_name', 'last_name', 'email', 'password', 'phone', 'address', 'is_staff']
@@ -26,13 +25,21 @@ class BlindSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class BlindDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Blind
+        fields = ['id', 'first_name', 'last_name', 'phone', 'address']
+
+
 class DeviceSerializer(serializers.ModelSerializer):
+    blind = BlindDetailsSerializer(read_only=True)
     class Meta:
         model = Device
-        fields = '__all__'
+        fields = ['api_key', 'ultrasonic_left_value', 'ultrasonic_right_value', 'gps_lat', 'gps_lng', 'gps_h', 'gps_m',
+                  'gps_s', 'status', 'blind']
+
 
 class UpdateCustomerSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Customer
         fields = ['id', 'username', 'first_name', 'last_name', 'email', 'phone', 'address', 'is_staff']

@@ -24,21 +24,21 @@ class Blind(models.Model):
 
 
 class Device(models.Model):
-    INSIDE = 'I'
-    DANGER = 'D'
-    OUT_OF_SIDE = 'O'
+    INSIDE = '0'
+    DANGER = '1'
+    OUT_OF_SIDE = '2'
     MEMBERSHIP_CHOICES = [
         (INSIDE, '0'),
         (DANGER, '1'),
         (OUT_OF_SIDE, '2'),
     ]
     api_key = models.UUIDField(primary_key=True, default=uuid4)
-    ultrasonic_left_value = models.CharField(max_length=255)
-    ultrasonic_right_value = models.CharField(max_length=255)
-    gps_lat = models.FloatField()
-    gps_lng = models.FloatField()
-    gps_h = models.FloatField()
-    gps_m = models.FloatField()
-    gps_s = models.FloatField()
-    status = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default=INSIDE)
+    ultrasonic_left_value = models.CharField(max_length=255, blank=True, null=True)
+    ultrasonic_right_value = models.CharField(max_length=255, blank=True, null=True)
+    gps_lat = models.FloatField(blank=True, null=True)
+    gps_lng = models.FloatField(blank=True, null=True)
+    gps_h = models.FloatField(blank=True, null=True)
+    gps_m = models.FloatField(blank=True, null=True)
+    gps_s = models.FloatField(blank=True, null=True)
+    status = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default=INSIDE, blank=True, null=True)
     blind = models.OneToOneField(Blind, on_delete=models.CASCADE, related_name='device')

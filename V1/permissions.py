@@ -25,3 +25,4 @@ class BlindDevicePermissions(permissions.BasePermission):
         if request.method in ['GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS']:
             return True
         return bool(request.user and request.user.is_staff)
+
