@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crontab',
     'user',
     'V1',
     'corsheaders',
@@ -157,4 +158,7 @@ CORS_ALLOW_METHODS = [
     'POST',
     'PUT',
     'VIEW',
+]
+CRONJOBS = [
+    ('*/1 * * * *', 'V1.cron.DeviceCronJob')
 ]

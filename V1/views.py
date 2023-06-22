@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
-from .permissions import IsAdminOrReadOnly, CustomerBlindPermissions, BlindDevicePermissions, BlindDetalisPermissions
+from .permissions import IsAdminOrReadOnly, CustomerBlindPermissions, BlindDevicePermissions
 from .serializer import CustomerSerializer, BlindSerializer, DeviceSerializer, UpdateCustomerSerializer, BlindDetailsSerializer
 from .models import Customer, Blind, Device
 

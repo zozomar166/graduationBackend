@@ -42,3 +42,7 @@ class Device(models.Model):
     gps_s = models.FloatField(blank=True, null=True)
     status = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default=INSIDE, blank=True, null=True)
     blind = models.OneToOneField(Blind, on_delete=models.CASCADE, related_name='device')
+    c_lat = models.FloatField(blank=True, null=True)
+    c_lng = models.FloatField(blank=True, null=True)
+    r1_radius = models.FloatField(blank=True, null=True)
+    r2_radius = models.FloatField(blank=True, null=True)
