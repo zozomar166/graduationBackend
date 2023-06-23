@@ -17,7 +17,7 @@ class Blind(models.Model):
     last_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blinds')
+    user = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='blinds')
 
     def __str__(self) -> str:
         return self.first_name

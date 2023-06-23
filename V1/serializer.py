@@ -26,17 +26,46 @@ class BlindSerializer(serializers.ModelSerializer):
 
 
 class BlindDetailsSerializer(serializers.ModelSerializer):
+    user = serializers.ReadOnlyField(source='user.username')
+    id = serializers.CharField(max_length=255)
+    first_name = serializers.CharField(max_length=255, read_only=True)
+    last_name = serializers.CharField(max_length=255, read_only=True)
+    phone = serializers.CharField(max_length=255, read_only=True)
+    address = serializers.CharField(max_length=255, read_only=True)
+
     class Meta:
         model = Blind
-        fields = ['id', 'first_name', 'last_name', 'phone', 'address']
+        fields = ['id', 'user', 'first_name', 'last_name', 'phone', 'address']
 
 
 class DeviceSerializer(serializers.ModelSerializer):
-    blind = BlindDetailsSerializer(read_only=True)
+    api_key = serializers.UUIDField(read_only=True)
+    blind = BlindDetailsSerializer()
+
+    def create(self, validated_data):
+        nested_data = validated_data.pop('blind', None)
+        blind_id = nested_data.get('id') if nested_data else None
+        instance = super().create(validated_data)
+        if blind_id:
+            blind_user = nested_data.pop('user', None)
+            blind_instance = Blind.objects.get(id=blind_id)
+            instance.blind = blind_instance
+            instance.save()
+        return instance
+
+    def update(self, instance, validated_data):
+        nested_data = validated_data.pop('blind', None)
+        if nested_data:
+            blind_serializer = self.fields['blind']
+            blind_instance = instance.blind
+            blind_serializer.update(blind_instance, nested_data)
+            instance.save()
+        return super().update(instance, validated_data)
+
     class Meta:
         model = Device
         fields = ['api_key', 'ultrasonic_left_value', 'ultrasonic_right_value', 'gps_lat', 'gps_lng', 'gps_h', 'gps_m',
-                  'gps_s', 'c_lat', 'c_lng', 'r1_radius', 'r2_radius',  'status', 'blind']
+                  'gps_s', 'c_lat', 'c_lng', 'r1_radius', 'r2_radius', 'status', 'blind']
 
 
 class UpdateCustomerSerializer(serializers.ModelSerializer):

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73c7399e-f699-4fd1-8dbb-b0305635b5dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/V1/cron.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/migrations/0011_device_c_lat_device_c_lng_device_r1_radius_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/V1/migrations/0012_alter_device_c_lat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/V1/migrations/0013_alter_device_blind.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/V1/migrations/0014_alter_blind_user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/V1/migrations/0015_alter_device_blind.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1/cron.py" beforeDir="false" afterPath="$PROJECT_DIR$/V1/cron.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/V1/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/V1/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/V1/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/V1/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/V1/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/V1/views.py" afterDir="false" />
@@ -38,7 +39,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/Desktop/graduationBackend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/Desktop/storefront2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>

@@ -49,6 +49,5 @@ class DeviceViewSet(ModelViewSet):
 
     def get_serializer_class(self):
         if self.request.method in ['POST', 'PUT', 'PATCH']:
-            # exclude the 'blind' field from the serializer for POST, PUT, and PATCH requests
             return DeviceSerializer
         return self.serializer_class
