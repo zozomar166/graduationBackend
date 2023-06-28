@@ -2,7 +2,8 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from .permissions import IsAdminOrReadOnly, CustomerBlindPermissions, BlindDevicePermissions
-from .serializer import CustomerSerializer, BlindSerializer, DeviceSerializer, UpdateCustomerSerializer, BlindDetailsSerializer
+from .serializer import CustomerSerializer, BlindSerializer, DeviceSerializer, UpdateCustomerSerializer, \
+    BlindDetailsSerializer, UpdateDeviceSerializer
 from .models import Customer, Blind, Device
 
 
@@ -48,6 +49,6 @@ class DeviceViewSet(ModelViewSet):
         return Device.objects.filter(blind__user_id=user.id)
 
     def get_serializer_class(self):
-        if self.request.method in ['POST', 'PUT', 'PATCH']:
-            return DeviceSerializer
+        if self.request.method in ['PUT', 'PATCH']:
+            return UpdateDeviceSerializer
         return self.serializer_class

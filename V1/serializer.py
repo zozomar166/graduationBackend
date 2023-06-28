@@ -20,6 +20,11 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 
 class BlindSerializer(serializers.ModelSerializer):
+    user = serializers.HyperlinkedRelatedField(
+        queryset=Customer.objects.all(),
+        view_name='customers-detail'
+    )
+
     class Meta:
         model = Blind
         fields = '__all__'
@@ -55,6 +60,7 @@ class DeviceSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         nested_data = validated_data.pop('blind', None)
+        print("n=", validated_data)
         if nested_data:
             blind_serializer = self.fields['blind']
             blind_instance = instance.blind
@@ -72,3 +78,14 @@ class UpdateCustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ['id', 'username', 'first_name', 'last_name', 'email', 'phone', 'address', 'is_staff']
+
+
+class UpdateDeviceSerializer(serializers.ModelSerializer):
+    status = serializers.CharField(max_length=255, required=False)
+    c_lat = serializers.FloatField(required=False)
+    c_lng = serializers.FloatField(required=False)
+    r1_radius = serializers.FloatField(required=False)
+    r2_radius = serializers.FloatField(required=False)
+    class Meta:
+        model = Device
+        fields = ['api_key', 'ultrasonic_left_value', 'ultrasonic_right_value', 'gps_lat', 'gps_lng', 'status', 'c_lat', 'c_lng', 'r1_radius', 'r2_radius']

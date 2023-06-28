@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-from datetime import timedelta
 from pathlib import Path
+from datetime import timedelta, timezone, datetime
+import time
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +41,6 @@ INSTALLED_APPS = [
     'V1',
     'corsheaders',
     'rest_framework',
-    'django_crontab',
 
 ]
 
@@ -160,6 +161,5 @@ CORS_ALLOW_METHODS = [
     'PUT',
     'VIEW',
 ]
-CRONJOBS = [
-    ('*/1 * * * *', 'V1.cron.DeviceCronJob')
-]
+
+
